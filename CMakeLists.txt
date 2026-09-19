@@ -12,3 +12,13 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_executable(device_sim
     src/main.cpp
 )
+
+add_executable(device_tests
+    tests/test_main.cpp 
+    src/Battery.cpp
+)
+
+#Tells CMake whree compiler should look for header files when compiling a certain target
+target_include_directories(device_tests PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
