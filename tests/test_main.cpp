@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Battery.h"
 #include "Charger.h"
+#include "Motor.h"
 
 int main() {
     std::cout << "Running tests..." << std::endl;
@@ -52,6 +53,52 @@ int main() {
     } else {
         std::cout << "[FAIL] Test 3: Charger discharging" << std::endl;
     }
+
+    std::cout << std::endl << std::endl;
+
+    //Motor Creation
+    Motor motor(100, 200);
+    if(motor.getMaxSpeed() == 100 && motor.getMaxPower() == 200) {
+        std::cout << "[PASS] Test 1: Create valid motor" << std::endl;
+    } else {
+        std::cout << "[FAIL] Test 1: Create valid motor" << std::endl;
+    }
+    //Invalid Motor Creation
+    try {
+        Motor motor2(-100, -200);
+        std::cout << "[FAIL] Test 2: Successful rejection of invalid motor" << std::endl;
+    } catch(const std::invalid_argument& e) {
+        std::cout << "[PASS] Test 2: Successful rejection of invalid motor" << std::endl;
+    }
+    //Increase Speed
+    motor.increaseSpeed(50);
+    if(motor.getCurrentSpeed() == 50) {
+        std::cout << "[PASS] Test 3: Increase Speed" << std::endl;
+    } else {
+        std::cout << "[FAIL] Test 3: Increase Speed" << std::endl;
+    }
+    //Decrease Speed
+    motor.decreaseSpeed(25);
+    if(motor.getCurrentSpeed() == 25) {
+        std::cout << "[PASS] Test 4: Decrease Speed" << std::endl;
+    } else {
+        std::cout << "[FAIL] Test 4: Decrease Speed" << std::endl;
+    }
+    //Running State
+    motor.decreaseSpeed(25);
+    if(motor.isRunning()) {
+        std::cout << "[PASS] Test 5: Test running state" << std::endl;
+    } else {
+        std::cout << "[FAIL] Test 5: Test running state" << std::endl;
+    }
+    //Set Valid Load
+    motor.setLoad(1);
+    if(motor.getLoad() == 1) {
+        std::cout << "[PASS] Test 6: Valid Load" << std::endl;
+    } else {
+        std::cout << "[FAIL] Test 6: Valid Load" << std::endl;
+    }
+    
     std::cout << "...tests completed.";
     return 0;
 }

@@ -17,6 +17,7 @@ add_executable(device_tests
     tests/test_main.cpp 
     src/Battery.cpp
     src/Charger.cpp
+    src/Motor.cpp
 )
 
 #Tells CMake whree compiler should look for header files when compiling a certain target
