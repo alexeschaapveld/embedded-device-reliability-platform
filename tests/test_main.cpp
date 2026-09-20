@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Battery.h"
+#include "Charger.h"
 
 int main() {
     std::cout << "Running tests..." << std::endl;
@@ -25,6 +26,32 @@ int main() {
     } else {
         std::cout << "[FAIL] Test 3: Add more charge than max capacity" << std::endl;
     }
-    
+
+    std::cout << std::endl << std::endl;
+
+    //Initialize a charger with a rate of 50 watts
+    Charger charger(50.0);
+    if(charger.getCurrentChargeRate() == 50) {
+        std::cout << "[PASS] Test 1: Charger creation" << std::endl;
+    } else {
+        std::cout << "[FAIL] Test 1: Charger creation" << std::endl;
+    }
+
+    //Change charge rate to 0 watts
+    charger.setCurrentChargeRate(0);
+    if(charger.getCurrentChargeRate() == 0) {
+        std::cout << "[PASS] Test 2: Charge value set to zero" << std::endl;
+    } else {
+        std::cout << "[FAIL] Test 2: Charge value set to zero" << std::endl;
+    }
+
+    //Change charge rate to discharge
+    charger.setCurrentChargeRate(-50.0);
+    if(charger.getCurrentChargeRate() == -50) {
+        std::cout << "[PASS] Test 3: Charger discharging" << std::endl;
+    } else {
+        std::cout << "[FAIL] Test 3: Charger discharging" << std::endl;
+    }
+    std::cout << "...tests completed.";
     return 0;
 }
