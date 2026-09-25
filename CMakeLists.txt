@@ -18,10 +18,13 @@ add_executable(device_tests
     tests/test_battery.cpp
     tests/test_charger.cpp
     tests/test_motor.cpp
-    
+    tests/test_battery_consumption.cpp
+    tests/test_device_controller.cpp
+
     src/Battery.cpp
     src/Charger.cpp
     src/Motor.cpp
+    src/DeviceController.cpp
 )
 
 #Tells CMake whree compiler should look for header files when compiling a certain target

@@ -31,4 +31,10 @@ void testMotor() {
     motor.decreaseSpeed(5000);
     assert(motor.getCurrentSpeed() == 0);
     assert(!motor.isRunning());
+
+    motor.increaseSpeed(500);
+    assert(motor.getPowerConsumption() == 250);
+
+    motor.increaseSpeed(500);
+    assert(motor.getPowerConsumption() == 500);
 }

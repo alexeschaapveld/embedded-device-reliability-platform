@@ -15,6 +15,7 @@ double Motor::getMaxSpeed() const { return maxSpeed_; }
 double Motor::getMaxPower() const {return maxPower_; }
 double Motor::getLoad() const {return load_; }
 bool Motor::isRunning() const {return currentSpeed_ != 0; }
+double Motor::getPowerConsumption() const { return maxPower_ * (currentSpeed_ / maxSpeed_); }
 
 void Motor::increaseSpeed(double amount) {
     if((currentSpeed_ + amount) <= maxSpeed_) {

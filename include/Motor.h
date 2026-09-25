@@ -10,6 +10,7 @@ public:
     double getMaxPower() const;
     double getLoad() const;
     bool isRunning() const;
+    double getPowerConsumption() const;
 
     void increaseSpeed(double amount);
     void decreaseSpeed(double amount);

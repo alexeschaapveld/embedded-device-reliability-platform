@@ -20,6 +20,18 @@ class DeviceController {
                             double maxMotorSpeed, 
                             double maxMotorPower
                         );
+
+        DeviceState getState() const;
+        void start();
+        void shutdown();
+
+        void increaseMotorSpeed(double amount);
+        void decreaseMotorSpeed(double amount);
+        void update( double time);
+
+        //Getters
+        double getBatteryCharge() const;
+        double getMotorSpeed() const;
     private:
         Battery battery_;
         Charger charger_;
