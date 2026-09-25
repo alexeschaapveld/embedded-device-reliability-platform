@@ -16,6 +16,18 @@ double Motor::getMaxPower() const {return maxPower_; }
 double Motor::getLoad() const {return load_; }
 bool Motor::isRunning() const {return currentSpeed_ != 0; }
 
-void Motor::increaseSpeed(double amount) {currentSpeed_ += amount; }
-void Motor::decreaseSpeed(double amount) {currentSpeed_ -= amount; }
+void Motor::increaseSpeed(double amount) {
+    if((currentSpeed_ + amount) <= maxSpeed_) {
+        currentSpeed_ += amount; 
+    } else {
+        currentSpeed_ = maxSpeed_;
+    }
+}
+void Motor::decreaseSpeed(double amount) {
+    if((currentSpeed_ - amount) >= 0) {
+        currentSpeed_ -= amount;
+    } else {
+        currentSpeed_ = 0;
+    }
+}
 void Motor::setLoad(double amount) {load_ = amount; }
