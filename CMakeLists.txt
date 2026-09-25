@@ -15,6 +15,10 @@ add_executable(device_sim
 
 add_executable(device_tests
     tests/test_main.cpp 
+    tests/test_battery.cpp
+    tests/test_charger.cpp
+    tests/test_motor.cpp
+    
     src/Battery.cpp
     src/Charger.cpp
     src/Motor.cpp

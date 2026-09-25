@@ -2,17 +2,35 @@
 
 A C++ simulation of a resource constrained embedded device designed to explore multithreading, synchronization, communication protocols, fault injection, automated testing, and CI.
 
+This is a simulated device which is based on a cordless power tool. The project does not reproduce a real product.
+
 ## Status
 
 In Development
 
 ## Current Stage
 
-Milestone 1 - System Definition
+Milestone 2 - Component Implemetation
+
+## Current Progress
+
+### Implemeted
+
+- C++ project structure using CMake
+- Battery component
+- Battery charge state and bounds management
+- Battery behavior tests
+
+## In Progress
+
+- Motor component
+- Charger component
+- Device controller
+
 
 ## Planned Systems
 
-- Simulated embedded device
+- Temperature sensing
 - Multithreaded device subsystems
 - Device communication protocol
 - Fault injection
