@@ -32,6 +32,7 @@ class DeviceController {
         //Getters
         double getBatteryCharge() const;
         double getMotorSpeed() const;
+        double getMotorPowerConsumption() const;
     private:
         Battery battery_;
         Charger charger_;

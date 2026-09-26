@@ -1,4 +1,4 @@
-#include "DeviceController.h""
+#include "DeviceController.h"
 
 DeviceController::DeviceController( 
                     double maxBatteryCharge,
@@ -61,3 +61,4 @@ void DeviceController::update(double timeElapsed) {
 //Getters
 double DeviceController::getBatteryCharge() const { return battery_.getCurrentCharge(); }
 double DeviceController::getMotorSpeed() const { return motor_.getCurrentSpeed(); }
+double DeviceController::getMotorPowerConsumption() const { return motor_.getMaxPower() * (motor_.getCurrentSpeed() / motor_.getMaxSpeed()); }
