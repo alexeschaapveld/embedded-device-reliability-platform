@@ -15,6 +15,8 @@ class SimulationService {
 
         void advanceTime(double seconds);
 
+        void setCurrentChargeRate(double amount);
+
         DeviceState getState() const;
         double getBatteryCharge() const;
         double getMotorSpeed() const;

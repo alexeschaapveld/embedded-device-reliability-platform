@@ -27,6 +27,7 @@ class DeviceController {
 
         void increaseMotorSpeed(double amount);
         void decreaseMotorSpeed(double amount);
+        void setCurrentChargeRate(double amount);
         void update( double time);
 
         //Getters
