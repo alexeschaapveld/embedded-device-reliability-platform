@@ -1,11 +1,11 @@
-#include <Charger.h>>
-#include <cassert>
+#include "Charger.h"
+#include <gtest/gtest.h>
 
-void testCharger() {
+TEST(Charger, GetAndSetChargeRate) {
     Charger charger(50);
 
-    assert(charger.getCurrentChargeRate() == 50);
+    EXPECT_DOUBLE_EQ(charger.getCurrentChargeRate(), 50);
 
     charger.setCurrentChargeRate(-50);
-    assert(charger.getCurrentChargeRate() == -50);
+    EXPECT_DOUBLE_EQ(charger.getCurrentChargeRate(), -50);
 }

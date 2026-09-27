@@ -1,14 +1,14 @@
 #include "Battery.h"
-#include <cassert>
+#include <gtest/gtest.h>
 
-void testBattery() {
+TEST(Battery, ClampsChargeWithinBounds) {
     Battery battery(100, 20);
 
-    assert(battery.getCurrentCharge() == 20);
+    EXPECT_DOUBLE_EQ(battery.getCurrentCharge(), 20);
 
     battery.changeCurrentCharge(-30);
-    assert(battery.getCurrentCharge() == 0);
+    EXPECT_DOUBLE_EQ(battery.getCurrentCharge(), 0);
 
     battery.changeCurrentCharge(150);
-    assert(battery.getCurrentCharge() == 100);
+    EXPECT_DOUBLE_EQ(battery.getCurrentCharge(), 100);
 }

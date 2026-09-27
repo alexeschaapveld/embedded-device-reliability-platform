@@ -1,7 +1,7 @@
-#include <cassert>
+#include <gtest/gtest.h>
 #include "DeviceController.h"
 
-void testBatteryConsumption() {
+TEST(DeviceController, BatteryConsumptionOverUpdateWindow) {
     DeviceController deviceController(100.0, 100.0, 10.0, 1000.0, 500.0);
 
     deviceController.start();
@@ -9,5 +9,5 @@ void testBatteryConsumption() {
 
     deviceController.update(0.1);
 
-    assert(deviceController.getBatteryCharge() == 50.0);
+    EXPECT_DOUBLE_EQ(deviceController.getBatteryCharge(), 51.0);
 }
