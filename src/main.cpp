@@ -25,6 +25,7 @@ void printHelp() {
         << "  increase <amount>\n"
         << "  decrease <amount>\n"
         << "  advance <seconds>\n"
+        << "  charge <power>\n"
         << "  shutdown\n"
         << "  status\n"
         << "  help\n"
@@ -78,6 +79,11 @@ int main() {
                         << "\nMotor speed: " << simulation.getMotorSpeed()
                         << "\nMotor power: " << simulation.getMotorPowerConsumption()
                         << std::endl << std::endl;
+        } else if(command == "charge") {
+            double power;
+            if(input >> power) {
+                simulation.setCurrentChargeRate(power);
+            }
         } else {
             std::cout << "Unknown command. Type 'help' for commands. " << std::endl;
         }

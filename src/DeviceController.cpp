@@ -45,18 +45,25 @@ void DeviceController::decreaseMotorSpeed(double amount) {
 }
 
 void DeviceController::update(double timeElapsed) {
-    if(timeElapsed <= 0)
+    if(timeElapsed <= 0 || state_ == DeviceState::FAULT)
         return;
+    double netEnergy = 0;
     if(motor_.isRunning()) {
         double power = motor_.getPowerConsumption();
-        double energy = power * timeElapsed;
-        battery_.changeCurrentCharge(-energy);
+        netEnergy -= power * timeElapsed;
     }
+    if(charger_.getCurrentChargeRate() != 0) {
+        double power = charger_.getCurrentChargeRate();
+        netEnergy += power * timeElapsed;
+    }
+    battery_.changeCurrentCharge(netEnergy);
     if(motor_.isRunning() && battery_.getCurrentCharge() <= 0) {
         motor_.decreaseSpeed(motor_.getCurrentSpeed());
         state_ = DeviceState::FAULT;
     }
 }
+
+void DeviceController::setCurrentChargeRate(double amount) { charger_.setCurrentChargeRate(amount); }
 
 //Getters
 double DeviceController::getBatteryCharge() const { return battery_.getCurrentCharge(); }

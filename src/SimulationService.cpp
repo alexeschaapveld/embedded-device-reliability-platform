@@ -22,6 +22,8 @@ void SimulationService::shutdown() { deviceController_.shutdown(); }
 void SimulationService::increaseMotorSpeed(double amount) { deviceController_.increaseMotorSpeed(amount); }
 void SimulationService::decreaseMotorSpeed(double amount) { deviceController_.decreaseMotorSpeed(amount); }
 
+void SimulationService::setCurrentChargeRate(double amount) { deviceController_.setCurrentChargeRate(amount); }
+
 void SimulationService::advanceTime(double seconds) { deviceController_.update(seconds); }
 
 DeviceState SimulationService::getState() const { return deviceController_.getState(); }
